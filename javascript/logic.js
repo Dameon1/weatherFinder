@@ -2,6 +2,7 @@
 $( document ).ready(function() {
   const appID = 'd1ba3e9127977098a5e40fc6948b4dc7';
 
+  let temperature = 0;
   $('.query_btn').click(function(){
     var query_param = $(this).prev().val();
     let weather;
@@ -11,6 +12,7 @@ $( document ).ready(function() {
        weather = 'http://api.openweathermap.org/data/2.5/weather?zip=' + query_param + '&APPID=' + appID;
     }
     $.getJSON(weather,function(json){
+      temperature = json.main.temp;
       $('#city').html(json.name);
       $('#main_weather').html(json.weather[0].main);
       $('#description_weather').html(json.weather[0].description);
@@ -22,21 +24,20 @@ $( document ).ready(function() {
   });
 
   // Optional Code for temperature conversion
-  var fahrenheit = true;
+
+  $('#convertToKelvin').click(function() {  
+      $('#temperature').text(temperature);
+      $('#format').text('Kelvin');    
+  })
 
   $('#convertToCelsius').click(function() {
-    if (fahrenheit) {
-      $('#temperature').text(((($('#temperature').text() - 32) * 5) / 9));
-    }
-    fahrenheit = false;
+      $('#temperature').text(Math.floor(temperature - 273.15));
+      $('#format').text('Celcius');    
   });
 
   $('#convertToFahrenheit').click(function() {
-    if (fahrenheit == false) {
-      $('#temperature').text((($('#temperature').text() * (9/5)) + 32));
-    }
-    fahrenheit = true;
+      $('#temperature').text(Math.floor(9/5*(temperature - 273.15) + 32));
+      $('#format').text('Fahrenheit') ;   
   });
 
-  console.log('working');
 });

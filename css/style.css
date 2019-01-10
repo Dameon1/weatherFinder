@@ -1,11 +1,24 @@
 
 *{
   box-sizing: border-box;
+  background-color: blanchedalmond;
 }
-
-
-
-
 h2 {
   font-size: 24px;
+}
+input {
+  background-color:white;
+  margin: 5px;
+  padding:2px;
+}
+form {
+  border: solid 2px black;
+  width: 400px;
+  margin: 10px auto;
+}
+button {
+  background-color: green;
+  color: white;
+  margin: 2px;
+  padding: 2px;
 }
