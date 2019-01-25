@@ -1,5 +1,4 @@
-
-*{
+* {
   box-sizing: border-box;
   background-color: blanchedalmond;
 }
@@ -7,9 +6,9 @@ h2 {
   font-size: 24px;
 }
 input {
-  background-color:white;
+  background-color: white;
   margin: 5px;
-  padding:2px;
+  padding: 2px;
 }
 form {
   border: solid 2px black;
