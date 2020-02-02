@@ -7,9 +7,9 @@ $( document ).ready(function() {
     var query_param = $(this).prev().val();
     let weather;
     if ($(this).prev().attr('placeholder') === 'City') {
-       weather = 'http://api.openweathermap.org/data/2.5/weather?q=' + query_param + '&APPID=' + appID;
+       weather = 'https://api.openweathermap.org/data/2.5/weather?q=' + query_param + '&APPID=' + appID;
     } else if ($(this).prev().attr('placeholder') === 'Zip Code') {
-       weather = 'http://api.openweathermap.org/data/2.5/weather?zip=' + query_param + '&APPID=' + appID;
+       weather = 'https://api.openweathermap.org/data/2.5/weather?zip=' + query_param + '&APPID=' + appID;
     }
     $.getJSON(weather,function(json){
       temperature = json.main.temp;
